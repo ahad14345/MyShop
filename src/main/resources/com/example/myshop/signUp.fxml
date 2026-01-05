@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myshop.SignupController">
+    <VBox alignment="CENTER" HBox.hgrow="ALWAYS" spacing="20.0" style="-fx-background-color: white;">
+        <padding><Insets left="60.0" right="60.0" /></padding>
+        <children>
+            <Label text="Create Your Account" style="-fx-font-size: 26; -fx-font-weight: bold;" />
+
+            <VBox spacing="12.0">
+                <TextField fx:id="fullNameField" prefHeight="40.0" promptText="Full Name" style="-fx-background-radius: 5;" />
+                <TextField fx:id="emailField" prefHeight="40.0" promptText="Email Address" style="-fx-background-radius: 5;" />
+                <TextField fx:id="usernameField" prefHeight="40.0" promptText="Username" style="-fx-background-radius: 5;" />
+                <PasswordField fx:id="passwordField" prefHeight="40.0" promptText="Password" style="-fx-background-radius: 5;" />
+            </VBox>
+
+            <Button onAction="#handleSignup" prefHeight="45.0" maxWidth="Infinity" style="-fx-background-color: #0D6EFD; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="SIGN UP" />
+
+            <Label fx:id="statusLabel" />
+
+            <Hyperlink onAction="#handleGoToLogin" text="Already have an account? Login" />
+        </children>
+    </VBox>
+
+    <VBox alignment="CENTER" prefWidth="300.0" spacing="20.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #ddd; -fx-border-width: 0 0 0 1;">
+        <children>
+            <Label text="MyShop" style="-fx-font-weight: bold; -fx-font-size: 24;" />
+            <Label text="Join our community to manage your inventory and sales with ease." wrapText="true" textAlignment="CENTER" style="-fx-padding: 20;" />
+        </children>
+    </VBox>
+</HBox>

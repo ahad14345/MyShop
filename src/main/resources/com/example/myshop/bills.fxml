@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" style="-fx-padding: 20;">
+    <Label style="-fx-font-size: 24; -fx-font-weight: bold;" text="Sales History" />
+    <TableView fx:id="billsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="Bill No" />
+            <TableColumn text="Date" />
+            <TableColumn text="Customer" />
+            <TableColumn text="Total Amount" />
+            <TableColumn text="Actions" />
+        </columns>
+    </TableView>
+</VBox>

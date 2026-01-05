@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myshop.loginController">
+    <VBox alignment="CENTER" prefWidth="350.0" spacing="20.0" style="-fx-background-color: linear-gradient(to bottom right, #0D6EFD, #003d99);">
+        <children>
+            <Label text="🔒" textFill="WHITE" style="-fx-font-size: 80;" />
+            <Label text="MyShop" textFill="WHITE" style="-fx-font-weight: bold; -fx-font-size: 32;" />
+            <Label text="Management System" textFill="WHITE" style="-fx-opacity: 0.8;" />
+        </children>
+    </VBox>
+
+    <VBox alignment="CENTER" HBox.hgrow="ALWAYS" spacing="25.0" style="-fx-background-color: white;">
+        <padding><Insets left="50.0" right="50.0" /></padding>
+        <children>
+            <Label text="Welcome Back!" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #333;" />
+
+            <VBox spacing="15.0">
+                <TextField fx:id="usernameField" prefHeight="45.0" promptText="Username" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-padding: 0 20;" />
+                <PasswordField fx:id="passwordField" prefHeight="45.0" promptText="Password" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-padding: 0 20;" />
+            </VBox>
+
+            <Button onAction="#handlelogin" prefHeight="45.0" prefWidth="250.0" style="-fx-background-color: #0D6EFD; -fx-text-fill: white; -fx-background-radius: 25; -fx-font-weight: bold; -fx-cursor: hand;" text="LOGIN" />
+
+            <Label fx:id="errorLabel" textFill="RED" />
+
+            <Hyperlink onAction="#handleGoToSignup" text="Don't have an account? Sign Up" style="-fx-text-fill: #0D6EFD;" />
+        </children>
+    </VBox>
+</HBox>
