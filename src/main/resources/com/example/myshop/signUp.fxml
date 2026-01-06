@@ -14,11 +14,13 @@
                 <TextField fx:id="emailField" prefHeight="40.0" promptText="Email Address" style="-fx-background-radius: 5;" />
                 <TextField fx:id="usernameField" prefHeight="40.0" promptText="Username" style="-fx-background-radius: 5;" />
                 <PasswordField fx:id="passwordField" prefHeight="40.0" promptText="Password" style="-fx-background-radius: 5;" />
+
+                <PasswordField fx:id="confirmPasswordField" prefHeight="40.0" promptText="Confirm Password" style="-fx-background-radius: 5;" />
             </VBox>
 
             <Button onAction="#handleSignup" prefHeight="45.0" maxWidth="Infinity" style="-fx-background-color: #0D6EFD; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="SIGN UP" />
 
-            <Label fx:id="statusLabel" />
+            <Label fx:id="statusLabel" wrapText="true" textAlignment="CENTER" />
 
             <Hyperlink onAction="#handleGoToLogin" text="Already have an account? Login" />
         </children>
@@ -26,8 +28,8 @@
 
     <VBox alignment="CENTER" prefWidth="300.0" spacing="20.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #ddd; -fx-border-width: 0 0 0 1;">
         <children>
-            <Label text="MyShop" style="-fx-font-weight: bold; -fx-font-size: 24;" />
-            <Label text="Join our community to manage your inventory and sales with ease." wrapText="true" textAlignment="CENTER" style="-fx-padding: 20;" />
+            <Label text="MyShop" style="-fx-font-weight: bold; -fx-font-size: 24; -fx-text-fill: #0D6EFD;" />
+            <Label text="Join our community to manage your inventory and sales with ease." wrapText="true" textAlignment="CENTER" style="-fx-padding: 20; -fx-text-fill: #666;" />
         </children>
     </VBox>
 </HBox>

@@ -1,4 +1,5 @@
 package com.example.myshop;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,14 @@ public class mainApplication extends Application {
     @Override
     public void start(Stage stage) {
         primaryStage = stage;
+
+        try {
+            DatabaseManager.initializeDatabase();
+        } catch (Exception e) {
+            System.err.println("Database Initialization Failed!");
+            e.printStackTrace();
+        }
+
         try {
             showScene("login.fxml", "My Shop - Admin Login");
         } catch (IOException e) {
@@ -21,7 +30,6 @@ public class mainApplication extends Application {
             e.printStackTrace();
         }
     }
-
     public static void showScene(String fxml, String title) throws IOException {
         URL resource = mainApplication.class.getResource(fxml);
 
@@ -33,7 +41,7 @@ public class mainApplication extends Application {
         Parent root = fxmlLoader.load();
 
         if (primaryStage.getScene() == null) {
-            Scene scene = new Scene(root, 900, 600); // Default starting size
+            Scene scene = new Scene(root, 900, 600);
             primaryStage.setScene(scene);
         } else {
             primaryStage.getScene().setRoot(root);
@@ -43,7 +51,7 @@ public class mainApplication extends Application {
         primaryStage.centerOnScreen();
         primaryStage.show();
 
-        System.out.println("Main Scene switched to: " + fxml);
+        System.out.println("Scene switched to: " + fxml);
     }
 
     public static void main(String[] args) {

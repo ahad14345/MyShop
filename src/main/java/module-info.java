@@ -10,7 +10,7 @@ module com.example.myshop {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
-
+    requires java.sql;
     opens com.example.myshop to javafx.fxml;
     exports com.example.myshop;
 }
