@@ -3,22 +3,30 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myshop.ProductController">
     <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+
     <Label style="-fx-font-size: 24; -fx-font-weight: bold;" text="Product Management" />
 
-    <HBox spacing="10">
-        <TextField fx:id="searchField" promptText="Search products..." prefWidth="300"/>
-        <Button text="Add New Product" style="-fx-background-color: #0D6EFD; -fx-text-fill: white;" />
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Search by product name..." prefWidth="300"/>
+        <Region HBox.hgrow="ALWAYS" />
+        <Button onAction="#handleDeleteProduct" text="Delete Selected" style="-fx-background-color: #dc3545; -fx-text-fill: white;" />
     </HBox>
 
     <TableView fx:id="productTable" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn text="ID" prefWidth="50" />
-            <TableColumn text="Product Name" prefWidth="250" />
-            <TableColumn text="Category" prefWidth="150" />
-            <TableColumn text="Price" prefWidth="100" />
-            <TableColumn text="Stock" prefWidth="100" />
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+            <TableColumn fx:id="nameColumn" text="Product Name" prefWidth="250" />
+            <TableColumn fx:id="priceColumn" text="Price" prefWidth="100" />
+            <TableColumn fx:id="stockColumn" text="Stock" prefWidth="100" />
         </columns>
     </TableView>
+
+    <HBox spacing="10" alignment="CENTER" style="-fx-background-color: #f8f9fa; -fx-padding: 15; -fx-background-radius: 5;">
+        <TextField fx:id="nameInput" promptText="Product Name" />
+        <TextField fx:id="priceInput" promptText="Price" prefWidth="80" />
+        <TextField fx:id="stockInput" promptText="Stock" prefWidth="80" />
+        <Button onAction="#handleAddProduct" text="Add Product" style="-fx-background-color: #198754; -fx-text-fill: white; -fx-font-weight: bold;" />
+    </HBox>
 </VBox>

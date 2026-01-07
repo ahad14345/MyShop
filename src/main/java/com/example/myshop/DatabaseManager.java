@@ -19,18 +19,39 @@ public class DatabaseManager {
                 "email TEXT UNIQUE, " +
                 "username TEXT UNIQUE, " +
                 "password TEXT);";
+
         String createProductsTable = "CREATE TABLE IF NOT EXISTS products (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name TEXT, " +
-                "price REAL, " +
+                "name TEXT UNIQUE, " + // Name is unique to prevent duplicate items
+                "price REAL NOT NULL, " +
                 "stock INTEGER DEFAULT 0);";
+
+        String createBillsTable = "CREATE TABLE IF NOT EXISTS bills (" +
+                "bill_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "customer_name TEXT, " +
+                "total_amount REAL, " +
+                "sale_date DATETIME DEFAULT CURRENT_TIMESTAMP);";
+
+        String createBillItemsTable = "CREATE TABLE IF NOT EXISTS bill_items (" +
+                "item_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "bill_id INTEGER, " +
+                "product_name TEXT, " +
+                "quantity INTEGER, " +
+                "unit_price REAL, " +
+                "subtotal REAL, " +
+                "FOREIGN KEY (bill_id) REFERENCES bills(bill_id));";
+
+
 
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement()) {
+            stmt.execute("PRAGMA foreign_keys = ON;");
             stmt.execute(createUsersTable);
             stmt.execute(createProductsTable);
+            stmt.execute(createBillsTable);
+            stmt.execute(createBillItemsTable);
 
-            System.out.println("Database initialization complete: 'myshop.db' is ready.");
+            System.out.println("Database initialization complete: All tables ready.");
 
         } catch (SQLException e) {
             System.err.println("Database Initialization Error: " + e.getMessage());
